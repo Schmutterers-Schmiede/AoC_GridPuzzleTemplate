@@ -41,5 +41,5 @@ The program will check if your algorithm is finished each step using the isFinis
 <img width="247" height="132" alt="image" src="https://github.com/user-attachments/assets/214b6fa7-ae36-4c42-91d6-ecd98cdff10c" />
 
 ## Download
-latest version (2.1): https://github.com/Schmutterers Schmiede/AoC_GridPuzzleTemplate/archive/refs/heads/V2.1.zip
+get the latest version (2.1): https://github.com/Schmutterers-Schmiede/AoC_GridPuzzleTemplate/archive/refs/heads/V2.1.zip
 ## Planned features
