@@ -30,7 +30,7 @@ In the constructor you also need to map a color to each distinct character in yo
 <img width="962" height="152" alt="image" src="https://github.com/user-attachments/assets/fed0ebf2-50ac-48b9-9962-9ff57acb4bfd" />
 
 ### Implementing an algorithm
-There is no main loop here. Instead you need to implement the ExecuteStep method, which performs a single step of your algorithm and you need to save your state in properties of the puzzle class. This is because the Program takes care of timing frames when you let the algorithm run freely and it needs to trigger each individual step step at the right time.
+There is no main loop here. Instead you need to implement the ExecuteStep method, which performs a single step of your algorithm and you need to save your state in properties of the puzzle class. This is because the Program takes care of timing frames when you let the algorithm run freely and it needs to trigger each individual step at the right time.
 
 <img width="432" height="495" alt="image" src="https://github.com/user-attachments/assets/ad190a7c-3905-4a8a-99d1-d6953ac00b2f" />
 
