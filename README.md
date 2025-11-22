@@ -42,4 +42,6 @@ The program will check if your algorithm is finished each step using the isFinis
 
 ## Download
 get the latest version (2.1): https://github.com/Schmutterers-Schmiede/AoC_GridPuzzleTemplate/archive/refs/heads/V2.1.zip
+
 ## Planned features
+I am planning to implement a text output field when I have the time for it.
