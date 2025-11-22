@@ -78,7 +78,7 @@ internal class Program
                 rgb = colorMap[chars[i]];
                 color = new Color((byte)rgb.R, (byte)rgb.G, (byte)rgb.B);
                 style = new Style(background: color);
-                sb.Append($"{{'{chars[i]}', new Rgba({rgb.R},{rgb.G},{rgb.B})}}");
+                sb.Append($"{{'{chars[i]}', new Rgba32({rgb.R},{rgb.G},{rgb.B})}}");
 
                 if (i < chars.Length - 1)
                     sb.Append(',');
@@ -123,10 +123,10 @@ internal class Program
             case "random colors":
                 colorMap = GenerateRandomValues();
                 break;
-            case "black to green":
+            case "gradient black to green":
                 colorMap = GenerateGreenGradient(true);
                 break;
-            case "green to black":
+            case "gradient green to black":
                 colorMap = GenerateGreenGradient(false);
                 break;
         }
