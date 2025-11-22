@@ -19,7 +19,7 @@ internal class ExamplePuzzle : IPuzzleAlgorithm
     private SPoint start;
     private SPoint pos;
     SPoint scout;
-    private bool isComplete;
+    private bool isFinished;
     string result = "";
     Dictionary<char, Color> colorMap;
 
@@ -33,11 +33,11 @@ internal class ExamplePuzzle : IPuzzleAlgorithm
     // The constructor is used for initializations
     public ExamplePuzzle()
     {
-        // Do not change this section except for the input file path
-        var input = File.ReadAllLines("DayX/input.txt"); 
-        width = input[0].Length;
-        height = input.Length;
-        grid = new Image<Rgba32>(width, height);
+        // algorithm specific initialization
+        start = new SPoint() { X = 0, Y = 0 };
+        pos = start;
+        isFinished = false;
+        direction = east;
 
         // This is where you define custom colors for the distinct characters in your puzzle input
         colorMap = new()
@@ -46,17 +46,25 @@ internal class ExamplePuzzle : IPuzzleAlgorithm
             {'x', new Rgba32(255,0,0)}
         };
 
+        
+        var input = File.ReadAllLines("DayX/input.txt"); 
+        width = input[0].Length;
+        height = input.Length;
+        grid = new Image<Rgba32>(width, height);
+
+        // top left position of the input is used as point (0,0)
         for (int y = 0; y < height; y++)
         {
             for (int x = 0; x < width; x++)
             {
                 grid[x,y] = colorMap[input[y][x]];
+                if (input[y][x] == 'x')
+                {
+                    start.X = x;
+                    start.Y = y;
+                }
             }
         }
-        start = new SPoint() { X = 0, Y = 0 };
-        pos = start;
-        isComplete = false;
-        direction = east;
     }
 
     // ========== INTERFACE METHODS ==========
@@ -77,7 +85,7 @@ internal class ExamplePuzzle : IPuzzleAlgorithm
 
         if (pos.Equals(start))
         {
-            isComplete = true;
+            isFinished = true;
             result = "300";
         }
     }
@@ -92,7 +100,7 @@ internal class ExamplePuzzle : IPuzzleAlgorithm
         return result;
     }
 
-    public bool IsComplete() => isComplete;
+    public bool IsFinished() => isFinished;
 
     // ============= HELPER METHODS =============
 

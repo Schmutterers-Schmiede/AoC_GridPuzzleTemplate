@@ -7,7 +7,7 @@ namespace GridPuzzleTemplate
     {
         void ExecuteStep();
         Image<Rgba32> GetImage();
-        bool IsComplete();
+        bool IsFinished();
         string GetResult();
     }
 }

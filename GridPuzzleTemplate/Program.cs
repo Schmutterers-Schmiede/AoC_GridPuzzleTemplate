@@ -81,7 +81,7 @@ internal class Program
                 {
                     if (runInstantly && !isFinished)
                     {
-                        while (!algorithm.IsComplete())
+                        while (!algorithm.IsFinished())
                         {
                             algorithm.ExecuteStep();
                         }
@@ -97,7 +97,7 @@ internal class Program
                         {
                             algorithm.ExecuteStep();
                             image = algorithm.GetImage();
-                            isFinished = algorithm.IsComplete();
+                            isFinished = algorithm.IsFinished();
                             if (isFinished)
                                 result = algorithm.GetResult();
                             lastStepTime = DateTime.Now;
@@ -132,6 +132,8 @@ internal class Program
 
             ImGui.Begin("Controls");
 
+
+            if (isRunning) ImGui.BeginDisabled();
             if (ImGui.BeginCombo("Algorithm", selectedAlgorithm))
             {
                 foreach (var key in availableAlgorithms.Keys)
@@ -151,6 +153,8 @@ internal class Program
                 }
                 ImGui.EndCombo();
             }
+            if (isRunning) ImGui.EndDisabled();
+
 
             ImGui.Spacing();
             if (isFinished) ImGui.BeginDisabled();
@@ -163,18 +167,20 @@ internal class Program
 
             ImGui.SameLine();
 
+            if (isRunning) ImGui.BeginDisabled();
             if (ImGui.Button("Step"))
             {
                 if (!isFinished)
                 {
                     algorithm.ExecuteStep();
                     image = algorithm.GetImage();
-                    isFinished = algorithm.IsComplete();
+                    isFinished = algorithm.IsFinished();
                     if (isFinished)
                         result = algorithm.GetResult();
                     UpdateTexture();
                 }
             }
+            if (isRunning) ImGui.EndDisabled();
 
             ImGui.SameLine();
 
